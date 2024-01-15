@@ -1,0 +1,148 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                         GridEA.mq5 |
+//|                                 Forex Robot Easy Team - forexroboteasy.com |
+//|                            Terms of Reference - The Devils Contract Grid Manual |
+//+------------------------------------------------------------------+
+
+// Global variables
+input double GridInterval = 10;             // Grid interval in pips
+input double PriceLevel = 1.2000;           // Initial price level
+input double ProfitTarget = 20;             // Profit target in pips
+input double StopLoss = 10;                 // Stop-loss level in pips
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize the grid trading strategy
+    InitGridTrading();
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Clean up any resources or open orders
+    CleanupGridTrading();
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if grid orders need to be placed
+    if (NeedToPlaceGridOrders())
+    {
+        // Place the grid orders
+        PlaceGridOrders();
+    }
+    
+    // Check if any grid orders are triggered
+    if (IsGridOrderTriggered())
+    {
+        // Calculate and display profit/loss
+        CalculateProfitLoss();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Initialize the grid trading strategy                              |
+//+------------------------------------------------------------------+
+void InitGridTrading()
+{
+    // Do any necessary initialization tasks
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Clean up any resources or open orders                             |
+//+------------------------------------------------------------------+
+void CleanupGridTrading()
+{
+    // Close any open orders
+    // ...
+    
+    // Clean up any resources
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Check if grid orders need to be placed                            |
+//+------------------------------------------------------------------+
+bool NeedToPlaceGridOrders()
+{
+    // Check market conditions or trader's preferences to determine if grid orders need to be placed
+    // ...
+    
+    return(true); // Placeholder value, replace with actual condition
+}
+
+//+------------------------------------------------------------------+
+//| Place the grid orders                                            |
+//+------------------------------------------------------------------+
+void PlaceGridOrders()
+{
+    // Calculate the number of grid orders to place
+    int numOrders = CalculateNumberOfOrders();
+    
+    // Calculate the price levels for the grid orders
+    double[] priceLevels = CalculatePriceLevels(numOrders);
+    
+    // Place the grid orders
+    for (int i = 0; i < numOrders; i++)
+    {
+        // Place order at priceLevels[i]
+        // ...
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Calculate the number of grid orders                               |
+//+------------------------------------------------------------------+
+int CalculateNumberOfOrders()
+{
+    // Calculate the number of grid orders based on market conditions or trader's preferences
+    // ...
+    
+    return(10); // Placeholder value, replace with actual calculation
+}
+
+//+------------------------------------------------------------------+
+//| Calculate the price levels for the grid orders                    |
+//+------------------------------------------------------------------+
+double[] CalculatePriceLevels(const int numOrders)
+{
+    double[] priceLevels;
+    
+    // Calculate the price levels for the grid orders based on market conditions or trader's preferences
+    // ...
+    
+    return(priceLevels); // Placeholder value, replace with actual calculation
+}
+
+//+------------------------------------------------------------------+
+//| Check if any grid orders are triggered                            |
+//+------------------------------------------------------------------+
+bool IsGridOrderTriggered()
+{
+    // Check if any grid orders are triggered based on market conditions or trader's preferences
+    // ...
+    
+    return(false); // Placeholder value, replace with actual condition
+}
+
+//+------------------------------------------------------------------+
+//| Calculate and display profit/loss                                |
+//+------------------------------------------------------------------+
+void CalculateProfitLoss()
+{
+    // Calculate and display the profit/loss based on the executed grid orders
+    // ...
+}
+
